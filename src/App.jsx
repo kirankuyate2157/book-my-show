@@ -1,13 +1,10 @@
-// import { Route } from "react-router-dom";
-
-import DefaultHOC from "./HOC/Defalult.HOC";
-import Temp from "./components/temp";
-function App() {
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/navbar.component";
+export default function App() {
   return (
-    <>
-      <DefaultHOC path="/" exact component={Temp} />
-    </>
+    <Routes>
+      <Route exact path="/" element={<Navbar />} />
+    </Routes>
   );
 }
-
-export default App;
