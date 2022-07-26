@@ -89,7 +89,9 @@ const Navbar = () => {
           <NavLg />
         </div>
       </nav>
-      <HeroCarousal />
+      <div>
+        <HeroCarousal />
+      </div>
     </>
   );
 };
