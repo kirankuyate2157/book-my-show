@@ -1,7 +1,12 @@
 import React from "react";
-
+// component
 import EntertainmentCardSlider from "../Entertainment/Entertainment.component";
-import Premier from "../Premier/Premier.component";
+// import Premier from "../Premier/Premier.component";
+import PosterSlider from "../PosterSlider/PosterSlider.component";
+
+// config
+import TempPosters from "../config/TempPosters.config";
+
 const HomePage = () => {
   return (
     <>
@@ -30,9 +35,36 @@ const HomePage = () => {
                 />
               </div>
             </div>
-            <Premier />
+            <PosterSlider
+              images={TempPosters}
+              title="Premieres"
+              subtitle="Brand new  releases every Friday"
+              isDark
+            />
           </div>
         </div>
+      </div>
+
+      <div className="container mx-auto px-4 flex flex-col gap-3 my-8">
+        <PosterSlider
+          images={TempPosters}
+          title="Online Streaming events"
+          isDark={false}
+        />
+      </div>
+      <div className="container mx-auto px-4 flex flex-col gap-3 my-8">
+        <PosterSlider
+          images={TempPosters}
+          title="Online Streaming events"
+          isDark={false}
+        />
+      </div>
+      <div className="container mx-auto px-4 flex flex-col gap-3 my-8">
+        <PosterSlider
+          images={TempPosters}
+          title="Outdoor events"
+          isDark={false}
+        />
       </div>
     </>
   );
