@@ -79,7 +79,7 @@ const NavLg = () => {
 const Navbar = () => {
   return (
     <>
-      <nav className="bg-snav-700 p-2  ">
+      <nav className="bg-snav-800 p-2  ">
         <div className="md:hidden">
           <NavSm />
         </div>

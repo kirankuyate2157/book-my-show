@@ -28,13 +28,18 @@ const HeroCarousal = () => {
     prevArrow: <PrevArrow />,
   };
   const images = [
-    "https://images.unsplash.com/photo-1658503366266-c815d907d551?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=1000&q=60",
-    "https://images.unsplash.com/photo-1644982647869-e1337f992828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=1000&q=60",
-    "https://images.unsplash.com/photo-1658532865456-bd2c7723cc6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0MHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=60",
-    "https://images.unsplash.com/photo-1625978827241-c8bdc7cc3ff7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHRyYWNraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
-    "https://images.unsplash.com/photo-1600267165477-6d4cc741b379?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHRyYWNraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
-    "https://images.unsplash.com/photo-1640184713839-9b87bde3cba5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fHRyYWNraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
-    "https://images.unsplash.com/photo-1429277005502-eed8e872fe52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYWNraW5nJTIwZ2lybHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/timepass-3-et00330615-1658992324.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/ek-villain-returns-et00128946-1658744061.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/vikrant-rona-et00128225-1657019014.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/shamshera-et00075253-1657356503.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/rocketry-et00094131-1655809015.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/thor-love-and-thunder-et00302403-24-05-2022-12-00-43.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/minions-the-rise-of-gru-et00122133-21-04-2022-06-44-55.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/hit-the-first-case-et00321702-17-06-2022-10-39-38.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/ramarao-on-duty-et00312747-1657525661.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/sarsenapati-hambirrao-et00104574-16-05-2022-01-56-11.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/mahaveeryar-et00332365-1656327128.jpg",
+    "https://assets-in.bmscdn.com/iedb/movies/images/extra/horizontal_no_logo/mobile/listing/xxlarge/green-lantern-beware-my-power-et00334223-1658934348.jpg",
   ];
   return (
     <>
