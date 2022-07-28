@@ -1,6 +1,7 @@
 import React from "react";
 import { BiChevronRight, BiCaretDown, BiSearch, BiMenu } from "react-icons/bi";
 import HeroCarousal from "../HeroCarousal/HeroCarousal.component";
+import HomePage from "../pages/Home.page";
 
 const NavSm = () => {
   return (
@@ -91,6 +92,7 @@ const Navbar = () => {
       </nav>
       <div>
         <HeroCarousal />
+        <HomePage />
       </div>
     </>
   );
