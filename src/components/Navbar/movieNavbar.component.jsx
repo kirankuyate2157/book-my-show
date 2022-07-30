@@ -16,18 +16,18 @@ const NavSm = () => {
     </>
   );
 };
-const NavMd = () => {
-  return (
-    <div className="w-full flex items-center gap-3 bg-white px-3 py-2 rounded-md">
-      <BiSearch className="bg-white " />
-      <input
-        type="search"
-        className="w-full bg-transparent border-none focus:outline-none "
-        placeholder="Search for movies,events,Plays,Sports and Activities"
-      />
-    </div>
-  );
-};
+// const NavMd = () => {
+//   return (
+//     <div className="w-full flex items-center gap-3 bg-white px-3 py-2 rounded-md">
+//       <BiSearch className="bg-white " />
+//       <input
+//         type="search"
+//         className="w-full bg-transparent border-none focus:outline-none "
+//         placeholder="Search for movies,events,Plays,Sports and Activities"
+//       />
+//     </div>
+//   );
+// };
 const NavLg = () => {
   return (
     <>
