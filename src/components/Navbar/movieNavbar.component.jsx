@@ -1,22 +1,16 @@
 import React from "react";
-import { BiChevronRight, BiCaretDown, BiSearch, BiMenu } from "react-icons/bi";
+import { BiShareAlt, BiCaretDown, BiSearch, BiMenu } from "react-icons/bi";
 
 const NavSm = () => {
   return (
     <>
-      <div className=" text-white flex items-center justify-between">
-        <div className="item-center w-3/5 gap-3 ">
-          <h3 className="font-bold">It All Starts Here!</h3>
-          <span className="flex text-gray-400 items-center text-xs">
-            Nashik
-            <BiChevronRight />
-          </span>
+      <div className=" text-white flex px-2 items-center justify-between">
+        <div>
+          {/* <div className="item-center w-3/5 gap-3 "> */}
+          <h3 className=" text-xl font-bold">It All Starts Here!</h3>
         </div>
-        <div className="  w-full item-center justify-end gap-4  flex h-8">
-          <button className="bg-red-500 text-white px-4 py-1 text-sm rounded">
-            Use App
-          </button>
-          <BiSearch className="h-full w-7" />
+        <div className="  w-8 h-8 p-1">
+          <BiShareAlt className="h-full w-full" />
         </div>
       </div>
     </>
@@ -74,15 +68,15 @@ const NavLg = () => {
   );
 };
 
-const Navbar = () => {
+const MovieNavbar = () => {
   return (
     <>
-      <nav className="bg-snav-800 p-2  ">
+      <nav className="absolute inset-x-0 z-30 bg-opacity-10 backdrop-filter backdrop-blur-lg   lg:bg-snav-800 block md:bg-snav-800  lg:relative md:relative">
         <div className="md:hidden">
           <NavSm />
         </div>
-        <div className="hidden md:flex lg:hidden">
-          <NavMd />
+        <div className="hidden md:block  lg:hidden">
+          <NavLg />
         </div>
         <div className="hidden lg:flex ">
           <NavLg />
@@ -92,4 +86,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default MovieNavbar;
