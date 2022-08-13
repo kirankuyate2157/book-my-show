@@ -16,7 +16,7 @@ const Settings = {
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1,
         InitialSlide: 1,
       },
@@ -24,8 +24,8 @@ const Settings = {
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 2,
+        slidesToScroll: 2,
       },
     },
   ],
