@@ -8,9 +8,11 @@ import Poster from "../Poster/Poster.component";
 import PosterCarouselSettings from "../config/PosterCarousel.config";
 
 const PosterSlider = (props) => {
+  const sliderConfig = props.config ? props.config : PosterCarouselSettings;
+
   return (
     <>
-      <div flex className=" flex items-center justify-between">
+      <div flex className=" flex items-center justify-between mb-3">
         <div className=" flex flex-col items-start">
           <div>
             <h3
@@ -30,12 +32,12 @@ const PosterSlider = (props) => {
             </p>
           </div>
         </div>
-        <span className="flex text-red-500 items-center text-xs  cursor-pointer ">
+        <span className="flex text-red-500  font-bold items-center text-xs  cursor-pointer ">
           See All
           <BiChevronRight />
         </span>
       </div>
-      <Slider {...PosterCarouselSettings}>
+      <Slider {...sliderConfig}>
         {props.images.map((image) => (
           <Poster {...image} isDark={props.isDark} />
         ))}

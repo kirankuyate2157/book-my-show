@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomeLayout from "./layouts/Home.my.layout";
 import Movie from "./components/pages/Movie.page";
-
+import PlayLayout from "./layouts/Plays.layout";
 // HOC
 // import MovieHOC from "./HOC/Movie.HOC";
 // Import css files
@@ -14,6 +14,7 @@ export default function App() {
     <Routes>
       <Route exact path="/" element={<HomeLayout />} />
       <Route exact path="/movie/:id" element={<Movie />} />
+      <Route exact path="/plays/" element={<PlayLayout />} />
     </Routes>
   );
 }
