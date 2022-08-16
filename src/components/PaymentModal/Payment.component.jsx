@@ -6,6 +6,27 @@ export default function PaymentModal({ isOpen, setIsOpen, price }) {
     setIsOpen(false);
   }
 
+  const launchRazorPay = () => {
+    let options = {
+      key: "rzp_test_LHbhzBnKOdTaVY",
+      amount: price * 100,
+      currency: "INR",
+      name: "Rennzon Book My Show clone",
+      description: "Movie Purchase or Rentals",
+      image:
+        "https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
+
+      handler: () => {
+        setIsOpen(false);
+        alert("Payment Done ✅");
+      },
+      theme: { color: "#c4242d" },
+    };
+
+    const Razorpay = new window.Razorpay(options);
+    Razorpay.open();
+  };
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -50,7 +71,7 @@ export default function PaymentModal({ isOpen, setIsOpen, price }) {
                     <button
                       type="button"
                       className=" w-full inline-flex justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
+                      onClick={launchRazorPay}
                     >
                       Pay ₹{price}
                     </button>
