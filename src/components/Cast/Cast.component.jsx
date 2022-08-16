@@ -6,7 +6,7 @@ const Cast = (props) => {
         <div className="w-32 h-32">
           <img
             src={props.image}
-            alt="actors"
+            alt="profile"
             className="w-full h-full rounded-full"
           />
         </div>

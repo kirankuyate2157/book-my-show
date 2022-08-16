@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -7,16 +7,52 @@ import MovieNavbar from "../Navbar/movieNavbar.component";
 import { FaCcVisa, FaApplePay } from "react-icons/fa";
 import Cast from "../Cast/Cast.component";
 import PosterSlider from "../PosterSlider/PosterSlider.component";
+import Slider from "react-slick";
 
 // component
 import { MovieContext } from "../../context/movie.context";
 
-// config
-import TempPosters from "../config/TempPosters.config";
-
 const Movie = () => {
   const { id } = useParams();
   const { movie, setMovie } = useContext(MovieContext);
+  const [cast, setCast] = useState([]);
+  const [crew, setCrew] = useState([]);
+
+  const [similarMovie, setSimilarMovie] = useState([]);
+  const [recommendedMovie, setRecommendedMovie] = useState([]);
+
+  useEffect(() => {
+    const requestCast = async () => {
+      const getCastData = await axios.get(`/movie/${id}/credits`);
+      setCast(getCastData.data.cast);
+    };
+    requestCast();
+  }, [id]);
+
+  useEffect(() => {
+    const requestCrew = async () => {
+      const getCrewData = await axios.get(`/movie/${id}/credits`);
+      setCrew(getCrewData.data.crew);
+    };
+    requestCrew();
+  }, [id]);
+  useEffect(() => {
+    const requestSimilarMovies = async () => {
+      const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
+      setSimilarMovie(getSimilarMovies.data.results);
+    };
+    requestSimilarMovies();
+  }, [id]);
+
+  useEffect(() => {
+    const requestRecommendedMovie = async () => {
+      const getRecommendedMovie = await axios.get(
+        `/movie/${id}/recommendations`
+      );
+      setRecommendedMovie(getRecommendedMovie.data.results);
+    };
+    requestRecommendedMovie();
+  }, [id]);
 
   useEffect(() => {
     const requestMovie = async () => {
@@ -24,7 +60,7 @@ const Movie = () => {
       setMovie(getMovieData.data);
     };
     requestMovie();
-  }, []);
+  }, [id]);
 
   const Settings = {
     Infinity: false,
@@ -59,6 +95,39 @@ const Movie = () => {
     ],
   };
 
+  const SettingsCast = {
+    Infinity: false,
+    autoplay: false,
+    slidesToShow: 6,
+    slidesToScroll: 4,
+    InitialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 3,
+          InitialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <MovieNavbar />
@@ -67,16 +136,11 @@ const Movie = () => {
       <div className="my-12 container lg:ml-20 lg:w-2/3 px-4">
         <div className="flex flex-col items-start gap-3">
           <h2 className="text-gray-800 font-bold text-2xl">About the movie</h2>
-          <p>
-            Laal Singh Chaddha, starring Aamir Khan & Kareena Kapoor is a story
-            set in India that unfolds through several historical events as a
-            beautiful journey of love, adventure, hope and wonder
-          </p>
+          <p>{movie.overview}</p>
         </div>
         <div className="my-8">
           <hr />
         </div>
-
         <div className="my-8">
           <h2 className="text-gray-800 font-bold text-2xl mb-3">
             Applicable offers
@@ -110,95 +174,62 @@ const Movie = () => {
             </div>
           </div>
         </div>
-
         <div className="my-8">
           <hr />
         </div>
-
+        {/* Cast information */}
         <div>
           <h2 className="text-gray-900 font-bold text-2xl mb-4">Cast</h2>
-          <div className="flex flex-wrap gap-4">
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/aamir-khan-42-20-12-2017-04-51-55.jpg"
-              castName="Amir khan"
-              role="as lal singh"
-            />
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/kareena-kapoor-khan-1151-26-07-2018-11-14-31.jpg"
-              castName="Kareena Kapoor"
-              role="as Rupa"
-            />
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/naga-chaitanya-akkineni-13567-1655789028.jpg"
-              castName="Chaitanya Akkineni"
-              role="as Bala"
-            />
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/mona-singh-21056-24-03-2017-12-41-22.jpg"
-              castName="Mona Singh"
-              role="as Chaddha mother"
-            />
-          </div>
-        </div>
 
+          <Slider {...SettingsCast}>
+            {cast.map((castData) => (
+              <Cast
+                image={`https://image.tmdb.org/t/p/original${castData.profile_path}`}
+                castName={castData.original_name}
+                role={`as ${castData.character}`}
+              />
+            ))}
+          </Slider>
+        </div>
         <div className="my-8">
           <hr />
         </div>
-
+        {/* Crew information */}
         <div>
           <h2 className="text-gray-900 font-bold text-2xl mb-4">Crew</h2>
-          <div className="flex flex-wrap gap-4">
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/advait-chandan-1076566-18-08-2017-17-07-29.jpg"
-              castName="Advait Chandan"
-              role="Director"
-            />
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/kiran-rao-20247-24-03-2017-12-31-15.jpg"
-              castName="Kiran Rao"
-              role="Producer"
-            />
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/aamir-khan-42-20-12-2017-04-51-55.jpg"
-              castName="Amir khan"
-              role="Producer"
-            />
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/pritam-chakraborty-1731-24-03-2017-17-41-56.jpg"
-              castName="Pritam Chakraborty"
-              role="Musician"
-            />
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/amitabh-bhattacharya-1089377-09-10-2020-04-30-42.jpg"
-              castName="Amitabh Bhattacharya"
-              role="Lyricist"
-            />
-            <Cast
-              image="https://assets-in.bmscdn.com/iedb/artist/images/website/poster/large/atul-kulkarni-261-21-09-2017-11-24-17.jpg"
-              castName="Atul Kulkarni"
-              role="ScreenPlay"
-            />
-          </div>
+
+          <Slider {...SettingsCast}>
+            {crew.map((crewData) => (
+              <Cast
+                image={`https://image.tmdb.org/t/p/original${crewData.profile_path}`}
+                castName={crewData.original_name}
+                role={crewData.job}
+              />
+            ))}
+          </Slider>
         </div>
 
         <div className="my-8">
           <hr />
         </div>
+
         <div className="my-8">
           <PosterSlider
             config={Settings}
-            images={TempPosters}
+            images={similarMovie}
             title="You Might Like"
             isDark={false}
           />
         </div>
+
         <div className="my-8">
           <hr />
         </div>
+
         <div className="my-8">
           <PosterSlider
             config={Settings}
-            images={TempPosters}
+            images={recommendedMovie}
             title="BMX Exlusive"
             isDark={false}
           />
