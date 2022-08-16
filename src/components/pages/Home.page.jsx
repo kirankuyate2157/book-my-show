@@ -1,13 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 // component
 import EntertainmentCardSlider from "../Entertainment/Entertainment.component";
 // import Premier from "../Premier/Premier.component";
 import PosterSlider from "../PosterSlider/PosterSlider.component";
 
 // config
-import TempPosters from "../config/TempPosters.config";
+// import TempPosters from "../config/TempPosters.config";
 
 const HomePage = () => {
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
+  useEffect(() => {
+    const requestPopularMovies = async () => {
+      const getPopularMovies = await axios.get("/movie/popular");
+      setPopularMovies(getPopularMovies.data.results);
+    };
+    requestPopularMovies();
+  }, []);
+  useEffect(() => {
+    const requestTopRatedMovies = async () => {
+      const getTopRatedMovies = await axios.get("/movie/top_rated");
+      setTopRatedMovies(getTopRatedMovies.data.results);
+    };
+    requestTopRatedMovies();
+  }, []);
+  useEffect(() => {
+    const requestUpcomingMovies = async () => {
+      const getUpcomingMovies = await axios.get("/movie/upcoming");
+      setUpcomingMovies(getUpcomingMovies.data.results);
+    };
+    requestUpcomingMovies();
+  }, []);
+
+  useEffect(() => {
+    const requestNowPlayingMovies = async () => {
+      const getNowPlayingMovies = await axios.get("/movie/now_playing");
+      setNowPlayingMovies(getNowPlayingMovies.data.results);
+    };
+    requestNowPlayingMovies();
+  });
   return (
     <>
       <div className=" flex flex-col gap-10">
@@ -36,7 +70,7 @@ const HomePage = () => {
               </div>
             </div>
             <PosterSlider
-              images={TempPosters}
+              images={popularMovies}
               title="Premieres"
               subtitle="Brand new  releases every Friday"
               isDark
@@ -47,22 +81,22 @@ const HomePage = () => {
 
       <div className="container mx-auto px-4 flex flex-col gap-3 my-8">
         <PosterSlider
-          images={TempPosters}
-          title="Online Streaming events"
+          images={topRatedMovies}
+          title="Top rated movies "
           isDark={false}
         />
       </div>
       <div className="container mx-auto px-4 flex flex-col gap-3 my-8">
         <PosterSlider
-          images={TempPosters}
-          title="Online Streaming events"
+          images={upcomingMovies}
+          title="Upcoming movies"
           isDark={false}
         />
       </div>
       <div className="container mx-auto px-4 flex flex-col gap-3 my-8">
         <PosterSlider
-          images={TempPosters}
-          title="Outdoor events"
+          images={nowPlayingMovies}
+          title="Now playing movies"
           isDark={false}
         />
       </div>

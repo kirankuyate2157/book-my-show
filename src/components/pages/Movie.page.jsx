@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
 import MovieHero from "../MovieHero/MovieHero.component";
 import MovieNavbar from "../Navbar/movieNavbar.component";
 import { FaCcVisa, FaApplePay } from "react-icons/fa";
 import Cast from "../Cast/Cast.component";
 import PosterSlider from "../PosterSlider/PosterSlider.component";
 
+// component
+import { MovieContext } from "../../context/movie.context";
+
 // config
 import TempPosters from "../config/TempPosters.config";
 
 const Movie = () => {
+  const { id } = useParams();
+  const { movie, setMovie } = useContext(MovieContext);
+
+  useEffect(() => {
+    const requestMovie = async () => {
+      const getMovieData = await axios.get(`/movie/${id}`);
+      setMovie(getMovieData.data);
+    };
+    requestMovie();
+  }, []);
+
   const Settings = {
     Infinity: false,
     autoplay: false,

@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BiShareAlt, BiCaretDown, BiSearch, BiMenu } from "react-icons/bi";
+import { MovieContext } from "../../context/movie.context";
 
 const NavSm = () => {
+  const { movie } = useContext(MovieContext);
+
   return (
     <>
       <div className=" text-white flex px-2 items-center justify-between">
         <div>
           {/* <div className="item-center w-3/5 gap-3 "> */}
-          <h3 className=" text-xl font-bold">It All Starts Here!</h3>
+          <h3 className=" text-xl font-bold">{movie.original_title}</h3>
         </div>
         <div className="  w-8 h-8 p-1">
           <BiShareAlt className="h-full w-full" />
