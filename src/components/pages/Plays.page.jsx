@@ -11,7 +11,7 @@ const Plays = () => {
       <div className="container mx-auto px-6 ">
         <div className="w-full lg:flex lg:flex-row-reverse lg:gap-4">
           <div className="lg:w-3/4 ">
-            <h2 className="text-2xl font-bold mb-4">Plays in Pune</h2>
+            <h2 className="text-2xl font-bold mb-4">Plays in Nashik</h2>
             <div className="flex flex-wrap ">
               <div className="w-1/2 md:w-1/4 my-3">
                 <Poster

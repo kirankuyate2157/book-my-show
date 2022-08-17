@@ -44,9 +44,9 @@ const HomePage = () => {
   });
   return (
     <>
-      <div className=" flex flex-col gap-10">
-        <div className="container mx-auto">
-          <div className="  hidden sm:flex py-10 ">
+      <div className=" flex flex-col gap-10 ">
+        <div className="container mx-auto px-4 ">
+          <div className="  hidden sm:flex  py-10 justify-center  ">
             <div>
               <img
                 src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/lead-in-v3-collection-202102040828.png"

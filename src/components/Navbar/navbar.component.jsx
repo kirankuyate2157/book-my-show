@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { BiChevronRight, BiCaretDown, BiSearch, BiMenu } from "react-icons/bi";
 
 const NavSm = () => {
@@ -40,11 +41,13 @@ const NavLg = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div className=" flex item-center w-3/5 gap-3 p-1">
           <div className="w-1/5 h-10 ">
-            <img
-              src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
-              alt="logo"
-              className="w-full h-full"
-            />
+            <Link to={"/"}>
+              <img
+                src="https://www.viralbake.com/wp-content/uploads/2021/06/bookmyshow.png"
+                alt="logo"
+                className="w-full h-full"
+              />
+            </Link>
           </div>
           <div className=" w-full p-1 item-content">
             <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
@@ -58,10 +61,12 @@ const NavLg = () => {
           </div>
         </div>
         <div className="flex items-center gap-3 ">
-          <span className="flex text-gray-300 items-center text-xs gap-1 hover:text-white cursor-pointer ">
-            Nashik
-            <BiCaretDown />
-          </span>
+          <Link to={"/plays/"}>
+            <span className="flex text-gray-300 items-center text-xs gap-1 hover:text-white cursor-pointer ">
+              Nashik
+              <BiCaretDown />
+            </span>
+          </Link>
           <button className="bg-red-500 text-white px-4 py-1 text-sm rounded ">
             Sign in
           </button>

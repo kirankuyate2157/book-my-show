@@ -38,7 +38,7 @@ const NavLg = () => {
         <div className=" flex item-center w-3/5 gap-3 p-1">
           <div className="w-1/5 h-10 ">
             <img
-              src="https://png2.cleanpng.com/sh/35072b99cbadffd0457705510368b1b6/L0KzQYm3VMA3N5Zqj5H0aYP2gLBuTfJwd5xykeVxb4ewhrr6gftpaaFmjNDqbT33ebTyhgQua5DyiNN3eT3mf8b3jB4ue5l0jAU2NXHmR7S5hMgyPJc3SaM3MUO5QoOAUsMyPWM4SKY5OUi3QIm8WL5xdpg=/kisspng-bookmyshow-visakhapatnam-ticket-company-coupon-shows-5ac7c2d814f211.1362272315230409840858.png"
+              src="https://www.viralbake.com/wp-content/uploads/2021/06/bookmyshow.png"
               alt="logo"
               className="w-full h-full"
             />

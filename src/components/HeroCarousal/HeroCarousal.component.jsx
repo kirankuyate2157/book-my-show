@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import HeroSlider from "react-slick";
 import axios from "axios";
-
-import { NextArrow, PrevArrow } from "./Arrows.component";
-
 const HeroCarousal = () => {
   const [images, setImages] = useState([]);
 
@@ -24,8 +21,6 @@ const HeroCarousal = () => {
     speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
   };
   const settings = {
     arrow: true,
@@ -35,8 +30,6 @@ const HeroCarousal = () => {
     speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
   };
 
   return (
